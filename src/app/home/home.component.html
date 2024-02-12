@@ -1,0 +1,16 @@
+@if(photosMars != undefined){
+    <p>home works!</p>
+    @for (photo of photosMars; track photo.id) {
+        <img [src]="photo.img_src" alt="">
+    }
+
+}
+
+<div style="margin: 3rem auto 0 auto; max-width: 1024px; display: flex; flex-direction: column; align-items: center;gap: 1rem">
+@if(photoToday != undefined){
+    <h2>Photo Today - {{photoToday.date}}</h2>
+    <img [src]="photoToday.hdurl" alt="" style="width: 100%;">
+    <h3>{{photoToday.title}}</h3>
+    <p>Explanation: {{photoToday.explanation}}</p>
+}   
+</div>
