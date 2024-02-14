@@ -17,7 +17,9 @@ export class AsteroidsComponent implements OnInit {
 
   asteroidsArray: any;
 
-  
+  //probar
+  asteroidsPrueba: any =[];
+  asteroidShow: any=[];
 
   constructor(
     private mainService: MainService,
@@ -58,18 +60,36 @@ export class AsteroidsComponent implements OnInit {
       //console.log(this.asteroidsArray);
       
       
+
+      for (let date in res.near_earth_objects) {
+        if (res.near_earth_objects.hasOwnProperty(date)) {
+            console.log(`Fecha: ${date}`);
+            console.log(res.near_earth_objects[date]); // Imprime el valor correspondiente a cada fecha
+            
+            this.asteroidsPrueba.push(res.near_earth_objects[date]);
+          }
+      }
+      console.log(this.asteroidsPrueba);
+      for(const asteroid of this.asteroidsPrueba){
+        //console.log(asteroid);
+        for(const elem of asteroid){
+          console.log(elem);
+          this.asteroidShow.push(elem);
+        }
+      }
+      console.log(this.asteroidShow);
       
       // console.log(todos);
-      while(fechaFin.getTime() >= fechaInicio.getTime()){
-        //console.log(res.near_earth_objects[]);
-        let fecha = fechaInicio.getFullYear() + '-' + (fechaInicio.getMonth() + 1) + '-' + fechaInicio.getDate();
-        console.log(fecha);
-        //this.asteroidsArray = res.near_earth_objects['"'+fecha+'"'];
-        console.log(fechaInicio.getFullYear() + '-' + (fechaInicio.getMonth() + 1) + '-' + fechaInicio.getDate());
-        fechaInicio.setDate(fechaInicio.getDate() + 1);
+      // while(fechaFin.getTime() >= fechaInicio.getTime()){
+        
+      //   let fecha = fechaInicio.getFullYear() + '-' + (fechaInicio.getMonth() + 1) + '-' + fechaInicio.getDate();
+      //   console.log(fecha);
+        
+      //   console.log(fechaInicio.getFullYear() + '-' + (fechaInicio.getMonth() + 1) + '-' + fechaInicio.getDate());
+      //   fechaInicio.setDate(fechaInicio.getDate() + 1);
   
-      }
-      console.log(this.asteroidsArray);
+      // }
+      // console.log(this.asteroidsArray);
     });
   }
 }
