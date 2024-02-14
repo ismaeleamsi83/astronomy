@@ -1,6 +1,8 @@
 <nav>
     <div>
         <span>LOGO</span>
-        <span>ASTRONOMY</span>
+        @for(item of menu; track item.id){
+            <span><a [routerLink]="item.url" [class.active]="item.selected" (click)="toggleActive(item.id)">{{item.name}}</a></span>
+        }
     </div>
 </nav>

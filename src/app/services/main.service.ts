@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +11,19 @@ export class MainService {
 
 
   keyApi ='10Zr3JfFT2Wg4gnfR5kD8eDeY9NqaQ4FdTdz0bGe';
+  keyApiDemo = 'DEMO_KEY';
 
   constructor(private http: HttpClient) { }
 
 
-
-  getMars(urlApi: any){
+  getTodayImg(urlApi: any): Observable<any>{
     return  this.http.get<any>(urlApi+this.keyApi);
   }
 
-  getTodayImg(urlApi: any){
-    return  this.http.get<any>(urlApi+this.keyApi);
+
+  getAsteroids(startDate: string , endDate :string ) {
+    //return this.http.get<any>(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=10Zr3JfFT2Wg4gnfR5kD8eDeY9NqaQ4FdTdz0bGe`);
+    return this.http.get<any>(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=10Zr3JfFT2Wg4gnfR5kD8eDeY9NqaQ4FdTdz0bGe`);
   }
 
 }
