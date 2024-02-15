@@ -21,6 +21,10 @@ export class AsteroidsComponent implements OnInit {
   asteroidsPrueba: any =[];
   asteroidShow: any=[];
 
+
+  //spinner
+  isLoading = false;
+
   constructor(
     private mainService: MainService,
     private fb: FormBuilder
@@ -45,6 +49,10 @@ export class AsteroidsComponent implements OnInit {
   }
 
   onSubmit(){
+
+    //spinner mostrar
+    this.isLoading=true;
+
     this.asteroidsArray = [];
     this.asteroidsPrueba = [];
     this.asteroidShow = [];
@@ -72,6 +80,10 @@ export class AsteroidsComponent implements OnInit {
           }
       }
       console.log(this.asteroidsPrueba);
+
+
+      //spinner ocultar
+      this.isLoading=false;
       for(const asteroid of this.asteroidsPrueba){
         for(const elem of asteroid){
           console.log(elem);

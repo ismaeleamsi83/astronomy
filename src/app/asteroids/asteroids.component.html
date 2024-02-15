@@ -25,6 +25,10 @@
     }
 </div> -->
 <div style="box-sizing: border-box;background-color: rgba(53, 69, 92, 0.8);margin: 3rem auto 0 auto; max-width: 1024px; display: flex; flex-direction: column; align-items: center;gap: 1rem; padding: 2rem;">
+    @if(isLoading){
+        <div class="spinner">
+        </div>
+    }
     @if(asteroidShow != undefined){
         <span>Number of Asteroids are: {{asteroidShow.length}}</span><br />
         <div style="display: flex; flex-wrap: wrap; gap:1rem;">
