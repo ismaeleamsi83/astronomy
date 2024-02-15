@@ -21,8 +21,20 @@ export class HomeComponent implements OnInit{
   constructor(private  mainService : MainService) {}
 
   ngOnInit(){
-    this.mainService.getTodayImg(this.urlToday).subscribe((data)=>{
-      this.photoToday = data;
+    this.mainService.getTodayImg(this.urlToday).subscribe({
+      next:  (data) => {
+        console.log('Data recibida');
+        this.photoToday = data;
+      },
+      error: (error) => {
+        if(error.status == 504){
+          console.log("Todavia no han actualizado la foto de hoy");
+        }else{
+          console.log('Error en la peticion');
+        }
+        
+      },
+      complete: ()=>console.log('Peticion completa')
     });
   }
 
