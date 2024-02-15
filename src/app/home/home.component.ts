@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit{
   urlToday = 'https://api.nasa.gov/planetary/apod?api_key=';
   photoToday: any;
 
+  showError: boolean = false;
+
 
   constructor(private  mainService : MainService) {}
 
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit{
       error: (error) => {
         if(error.status == 504){
           console.log("Todavia no han actualizado la foto de hoy");
+          this.showError = true;
         }else{
           console.log('Error en la peticion');
         }
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit{
       },
       complete: ()=>console.log('Peticion completa')
     });
+  }
+
+  hiddenError(){
+    this.showError = false;
   }
 
 }
