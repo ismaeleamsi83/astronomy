@@ -25,13 +25,20 @@
       }
     }
 
+    .but-submit{
+      padding: 6px 1rem 4px 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 2px #253143;
+    }
 
     .but-prev{
-      padding: 4px 1rem;
+      padding: 6px 1rem 4px 1.2rem;
       border-radius: 1rem 4px 4px 1rem;
+      box-shadow: 0 2px 2px #253143;
     }
 
     .but-next{
-      padding: 4px 1rem;
+      padding: 6px 1.2rem 4px 1rem;
       border-radius: 4px 1rem 1rem 4px;
+      box-shadow: 0 2px 2px #253143;
     }
