@@ -26,6 +26,10 @@ export class AsteroidsComponent implements OnInit {
   isLoading = false;
 
 
+  //fecha maximo
+  dateMax: string;
+
+
   //variables para la paginacion
   limite = 5;
   desde = 0;
@@ -35,7 +39,15 @@ export class AsteroidsComponent implements OnInit {
   constructor(
     private mainService: MainService,
     private fb: FormBuilder
-    ){}
+    ){
+
+      // Calcula la fecha máxima (actual) y formatea
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = (today.getMonth() + 1).toString().padStart(2, '0');
+      const day = today.getDate().toString().padStart(2, '0');
+      this.dateMax = `${year}-${month}-${day}`;
+    }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -47,6 +59,11 @@ export class AsteroidsComponent implements OnInit {
 
   onSubmit(){
 
+    // si no esta introducidas las fechas no se hace consulta
+    if(this.form.invalid){
+      return console.log("salir");
+    }
+    
     //spinner mostrar
     this.isLoading=true;
 
@@ -92,12 +109,12 @@ export class AsteroidsComponent implements OnInit {
   }
 
   nextAsteroids(){
-
-    if(!(this.limite >= this.asteroidShow.length)){
-      this.desde += 5;
-      this.limite += 5;
+    if(!(this.asteroidShow.length == 0)){
+      if(!(this.limite >= this.asteroidShow.length)){
+        this.desde += 5;
+        this.limite += 5;
+      }
     }
-    
   }
 
   previewAsteroids(){
