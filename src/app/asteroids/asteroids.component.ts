@@ -25,6 +25,13 @@ export class AsteroidsComponent implements OnInit {
   //spinner
   isLoading = false;
 
+
+  //variables para la paginacion
+  limite = 5;
+  desde = 0;
+  paginas: any;
+  paginaActiva = 1;
+
   constructor(
     private mainService: MainService,
     private fb: FormBuilder
@@ -36,16 +43,6 @@ export class AsteroidsComponent implements OnInit {
       endDate: ['', Validators.required]
     });
     
-    // this.mainService.getAsteroids("2015-09-07","2015-09-08").subscribe((data) =>{
-    //   const fechaInicio = "2015-09-07";
-    //   const fechaFinal = "2015-09-08";
-    //   console.log('Data received');
-    //   console.log(data);
-    //   console.log(data.near_earth_objects);
-    //   console.log(data.near_earth_objects[fechaInicio]);
-    //   console.log(data.near_earth_objects[fechaFinal]);
-    // });
-
   }
 
   onSubmit(){
@@ -92,5 +89,21 @@ export class AsteroidsComponent implements OnInit {
       }
       console.log(this.asteroidShow);
     });
+  }
+
+  nextAsteroids(){
+
+    if(!(this.limite >= this.asteroidShow.length)){
+      this.desde += 5;
+      this.limite += 5;
+    }
+    
+  }
+
+  previewAsteroids(){
+    if(!(this.desde <= 0)){
+      this.desde -= 5;
+      this.limite -= 5;
+    }
   }
 }

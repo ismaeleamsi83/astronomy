@@ -2,9 +2,9 @@
 .spinner{
     /*   for centering div */
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 50% ;
+      left: 50% -25px;
+      //transform: translate(-50%, -50%);
       
     /*   spinner div css */
       height : 50px;
@@ -23,4 +23,15 @@
       100%{
         transform : rotate(360deg);
       }
+    }
+
+
+    .but-prev{
+      padding: 4px 1rem;
+      border-radius: 1rem 4px 4px 1rem;
+    }
+
+    .but-next{
+      padding: 4px 1rem;
+      border-radius: 4px 1rem 1rem 4px;
     }

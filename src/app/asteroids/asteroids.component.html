@@ -33,12 +33,18 @@
         <span>Number of Asteroids are: {{asteroidShow.length}}</span><br />
         <div style="display: flex; flex-wrap: wrap; gap:1rem;">
         @for (item of asteroidShow; track $index) {
+            @if($index >= desde && $index < limite){
             <article style="border: 1px solid white; padding: 1rem;">
                 
                 <span>Name: {{item.name}}</span>
                 
             </article>
+            }
         }
+        </div>
+        <div>
+            <button (click)="previewAsteroids()" class="but-prev">Prev</button>
+            <button (click)="nextAsteroids()" class="but-next">Next</button>
         </div>
     }
 </div>
