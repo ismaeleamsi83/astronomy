@@ -59,10 +59,16 @@ export class AsteroidsComponent implements OnInit {
 
   onSubmit(){
 
+    
+
     // si no esta introducidas las fechas no se hace consulta
     if(this.form.invalid){
       return console.log("salir");
     }
+
+    //reiniciar desde
+    this.desde = 0;
+    this.limite = 5;
     
     //spinner mostrar
     this.isLoading=true;
