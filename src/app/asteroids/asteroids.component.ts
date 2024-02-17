@@ -36,6 +36,11 @@ export class AsteroidsComponent implements OnInit {
   paginas: any;
   paginaActiva = 1;
 
+
+  //mostrar error
+  showError: boolean = false;
+  messageError: string = "";
+
   constructor(
     private mainService: MainService,
     private fb: FormBuilder
@@ -63,6 +68,8 @@ export class AsteroidsComponent implements OnInit {
 
     // si no esta introducidas las fechas no se hace consulta
     if(this.form.invalid){
+      this.messageError = "Sorry, but LIMIT BETWEEN 7 DAYS."
+      this.showError = true;
       return console.log("salir");
     }
 
@@ -80,37 +87,50 @@ export class AsteroidsComponent implements OnInit {
     console.log(this.form);
     console.log(this.form.value.startDate);
     this.mainService.getAsteroids(this.form.value.startDate, this.form.value.endDate)
-    .subscribe((res)=>{
-      console.log(res);
-      this.asteroids = res;
-      console.log(this.asteroids);
+    .subscribe({
+      next:  (res) => {
       
-      const fechaInicio = new Date(this.form.value.startDate); 
-      const fechaFin = new Date(this.form.value.endDate);
-      this.asteroidsArray = res.near_earth_objects[this.form.value.startDate];
-      
-      
-
-      for (let date in res.near_earth_objects) {
-        if (res.near_earth_objects.hasOwnProperty(date)) {
-            console.log(`Fecha: ${date}`);
-            console.log(res.near_earth_objects[date]); 
-            
-            this.asteroidsPrueba.push(res.near_earth_objects[date]);
-          }
-      }
-      console.log(this.asteroidsPrueba);
-
-
-      //spinner ocultar
-      this.isLoading=false;
-      for(const asteroid of this.asteroidsPrueba){
-        for(const elem of asteroid){
-          console.log(elem);
-          this.asteroidShow.push(elem);
+        console.log(res);
+        this.asteroids = res;
+        console.log(this.asteroids);
+        
+        const fechaInicio = new Date(this.form.value.startDate); 
+        const fechaFin = new Date(this.form.value.endDate);
+        this.asteroidsArray = res.near_earth_objects[this.form.value.startDate];
+        
+        
+  
+        for (let date in res.near_earth_objects) {
+          if (res.near_earth_objects.hasOwnProperty(date)) {
+              console.log(`Fecha: ${date}`);
+              console.log(res.near_earth_objects[date]); 
+              
+              this.asteroidsPrueba.push(res.near_earth_objects[date]);
+            }
         }
+        console.log(this.asteroidsPrueba);
+  
+  
+        //spinner ocultar
+        this.isLoading=false;
+        for(const asteroid of this.asteroidsPrueba){
+          for(const elem of asteroid){
+            console.log(elem);
+            this.asteroidShow.push(elem);
+          }
+        }
+        console.log(this.asteroidShow);
+      },
+      error: err=>{
+        if(err.status == 400) {
+          this.messageError = "Sorry, but LIMIT BETWEEN 7 DAYS.";
+          this.showError = true;
+        }else{
+          this.messageError = "Error connecting to NASA API";
+          this.showError = true;
+        }
+        this.isLoading = false;
       }
-      console.log(this.asteroidShow);
     });
   }
 
@@ -129,4 +149,9 @@ export class AsteroidsComponent implements OnInit {
       this.limite -= 5;
     }
   }
+
+  hiddenError(){
+    this.showError = false;
+  }
+
 }
