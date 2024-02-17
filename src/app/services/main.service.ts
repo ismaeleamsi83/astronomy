@@ -26,4 +26,8 @@ export class MainService {
     return this.http.get<any>(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=10Zr3JfFT2Wg4gnfR5kD8eDeY9NqaQ4FdTdz0bGe`);
   }
 
+  getMars(urlApi: any): Observable<any>{
+    return this.http.get<any>(urlApi+this.keyApi);
+  }
+
 }

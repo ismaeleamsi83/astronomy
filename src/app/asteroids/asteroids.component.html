@@ -22,9 +22,11 @@
             @if($index >= desde && $index < limite){
             <article style="border: 1px solid white; padding: 1rem; display: flex; flex-direction: column;">
                 
-                <span>Name: {{item.name}}</span>
+                <span style="font-weight: 600; margin-bottom: 8px;">Name: {{item.name}}</span>
                 <span>Magnitude: {{item.absolute_magnitude_h}} H</span>
-                <span>Is potentially hazardous asteroid: {{item.is_potentially_hazardous_asteroid}}</span>
+                <span>Diameter Min: {{item.estimated_diameter.meters.estimated_diameter_min}} m</span>
+                <span>Diameter Max: {{item.estimated_diameter.meters.estimated_diameter_max}} m</span>
+                <span>Potentially Hazardous Asteroid: {{item.is_potentially_hazardous_asteroid}}</span>
             </article>
             }
         }

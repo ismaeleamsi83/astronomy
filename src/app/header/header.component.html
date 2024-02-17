@@ -1,6 +1,6 @@
 <nav>
     <div>
-        <span>LOGO</span>
+        <span><img src="../../assets/images/logo-astronomy.png" alt="" /></span>
         @for(item of menu; track item.id){
             <span><a [routerLink]="item.url" [class.active]="item.selected" (click)="toggleActive(item.id)">{{item.name}}</a></span>
         }

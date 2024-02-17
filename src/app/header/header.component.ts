@@ -15,6 +15,7 @@ export class HeaderComponent {
   menu = [
     { 'id': 0, 'name': 'Home', 'url': '', 'selected': false},
     { 'id': 1, 'name': 'Asteroids', 'url':'asteroids', 'selected': false },
+    { 'id': 2, 'name': 'Mars', 'url':'mars', 'selected': false },
   ];
 
   toggleActive(index: number){
