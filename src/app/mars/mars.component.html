@@ -1,10 +1,9 @@
-<div style="box-sizing: border-box;background-color: rgba(53, 69, 92, 0.8);margin: 3rem auto 0 auto; max-width: 1024px; display: flex; flex-wrap: wrap; justify-content: center;gap: 1rem; padding: 2rem;">
+<div class="container">
     @for(item of marsArray; track $index){
-        <article style="border: 1px solid white; padding: 4px 8px; display: flex; flex-direction: column;">
+        <article>
             <span>{{item.camera.full_name}}</span>
             <span>{{item.earth_date}}</span>
-            <img [src]="item.img_src" alt="" style="width: 300px;">
+            <img [src]="item.img_src" alt="{{item.camera.full_name}}" >
         </article>
-        
     }
 </div>    

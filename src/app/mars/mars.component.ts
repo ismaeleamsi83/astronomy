@@ -11,8 +11,6 @@ import { MainService } from '../services/main.service';
 export class MarsComponent implements OnInit {
 
   urlApi = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&api_key=";
-
-
   marsArray:any;
 
   constructor(private mainService: MainService){}
@@ -21,14 +19,14 @@ export class MarsComponent implements OnInit {
     this.mainService.getMars(this.urlApi).
     subscribe({
       next:(res) =>{
-        console.log("Data recibida");
-        console.log(res.photos);
+        // console.log("Data recibida");
+        // console.log(res.photos);
         this.marsArray = res.photos;
-        console.log(this.marsArray);
+        // console.log(this.marsArray);
         
         },
       error: (error)=>{
-        alert('Ocurrió un error al cargar los datos');
+        //alert('Ocurrió un error al cargar los datos');
         console.log("Error en la petición");
         console.log(error);
       }
