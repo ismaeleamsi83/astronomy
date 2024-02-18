@@ -47,6 +47,39 @@
     }
 }
 
+.containerError{
+    max-width: 400px; 
+    background-color: rgb(253, 114, 114); 
+    display: flex; 
+    justify-content: space-between; 
+    box-sizing: border-box;
+    align-items: center; 
+    padding: 1.5rem 1rem; 
+    border-radius: 8px; 
+    gap:1rem; 
+    margin: 1rem; 
+    position: fixed; 
+    bottom: 1rem; 
+    right: 1rem; 
+    z-index:1;
+    div:nth-child(1){
+        width: 40px;
+    }
+    div:nth-child(2){
+        span{
+            font-size: 1.2rem; 
+            font-weight: 600;
+        }
+        p{
+            margin-top: 8px;
+        }
+    }
+    div:nth-child(3){
+        width: 32px;
+        cursor: pointer;
+    }
+}
+
 
 @media (max-width:768px){
 
