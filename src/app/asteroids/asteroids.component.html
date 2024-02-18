@@ -1,28 +1,27 @@
-<div style="box-sizing: border-box;background-color: rgba(53, 69, 92, 0.8);margin: 3rem auto 0 auto; max-width: 1024px; display: flex; flex-direction: column; align-items: center;gap: 1rem; padding: 2rem;">
+<div class="containerPrimary">
     <h2>Asteroids</h2>
     <h3>Filter near-Earth asteroids by their start date and end date</h3>
     <h4>(limit between 7 days)</h4>
     <form [formGroup]="form" (submit)="onSubmit()">
         Start Date:<br />
-        <input type="date" id="startDateInput" name="startDateInput" formControlName="startDate" ><br />
+        <input type="date" id="startDateInput" name="startDateInput" formControlName="startDate"><br />
         End Date:<br />
         <input type="date" id="endDateInput" name="endDateInput" formControlName="endDate" max="{{dateMax}}"><br /><br />
-        <button class="but-submit">Submit</button><br/>
+        <button class="but-submit">Search</button><br/>
     </form>
 </div>
-<div style="box-sizing: border-box;background-color: rgba(53, 69, 92, 0.8);margin: 3rem auto 0 auto; max-width: 1024px; display: flex; flex-direction: column; align-items: center;gap: 1rem; padding: 2rem;">
+<div class="containerSecondary">
     @if(isLoading){
         <div class="spinner">
         </div>
     }
     @if(asteroidShow != undefined){
         <span>Number of Asteroids are: {{asteroidShow.length}}</span><br />
-        <div style="display: flex; flex-wrap: wrap; gap:1rem;  justify-content:center;">
+        <div class="contentArticle">
         @for (item of asteroidShow; track $index) {
             @if($index >= desde && $index < limite){
-            <article style="border: 1px solid white; padding: 1rem; display: flex; flex-direction: column;">
-                
-                <span style="font-weight: 600; margin-bottom: 8px;">Name: {{item.name}}</span>
+            <article>
+                <span>Name: {{item.name}}</span>
                 <span>Magnitude: {{item.absolute_magnitude_h}} H</span>
                 <span>Diameter Min: {{item.estimated_diameter.meters.estimated_diameter_min}} m</span>
                 <span>Diameter Max: {{item.estimated_diameter.meters.estimated_diameter_max}} m</span>
@@ -40,19 +39,18 @@
 
 
 @if(showError){
-    <div style="max-width: 400px; background-color: rgb(253, 114, 114); display: flex; justify-content: space-between; box-sizing: border-box;
-    align-items: center; padding: 1.5rem 1rem; border-radius: 8px; gap:1rem; margin: 1rem; position: fixed; bottom: 1rem; right: 1rem; z-index:1;">
-        <div style="width: 40px;">
+    <div class="containerError">
+        <div>
             <svg xmlns="http://www.w3.org/2000/svg" fill="white"  viewBox="0 0 16 16">
                 <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1z"/>
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
               </svg>
         </div>
         <div>
-            <span style="font-size: 1.2rem; font-weight: 600;">Warning</span>
-            <p style="margin-top: 8px;">{{messageError}}</p>
+            <span >Warning</span>
+            <p>{{messageError}}</p>
         </div>
-        <div style="width: 32px;" (click)="hiddenError()">
+        <div (click)="hiddenError()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>

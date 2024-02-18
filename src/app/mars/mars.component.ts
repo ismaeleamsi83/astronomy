@@ -19,14 +19,9 @@ export class MarsComponent implements OnInit {
     this.mainService.getMars(this.urlApi).
     subscribe({
       next:(res) =>{
-        // console.log("Data recibida");
-        // console.log(res.photos);
         this.marsArray = res.photos;
-        // console.log(this.marsArray);
-        
         },
       error: (error)=>{
-        //alert('Ocurrió un error al cargar los datos');
         console.log("Error en la petición");
         console.log(error);
       }

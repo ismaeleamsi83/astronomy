@@ -29,16 +29,111 @@
       padding: 6px 1rem 4px 1rem;
       border-radius: 4px;
       box-shadow: 0 2px 2px #253143;
+      width: 120px;
+      color: #253143;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
     }
 
     .but-prev{
       padding: 6px 1rem 4px 1.2rem;
       border-radius: 1rem 4px 4px 1rem;
       box-shadow: 0 2px 2px #253143;
+      color: #253143;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
     }
 
     .but-next{
       padding: 6px 1.2rem 4px 1rem;
       border-radius: 4px 1rem 1rem 4px;
       box-shadow: 0 2px 2px #253143;
+      color: #253143;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
     }
+
+.containerPrimary{
+  box-sizing: border-box;
+  background-color: rgba(53, 69, 92, 0.8);
+  margin: 3rem auto 0 auto; 
+  max-width: 1024px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  gap: 1rem; 
+  padding: 2rem;
+}
+
+.containerSecondary{
+  box-sizing: border-box;
+  background-color: rgba(53, 69, 92, 0.8);
+  margin: 3rem auto 0 auto; 
+  max-width: 1024px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  gap: 1rem; 
+  padding: 2rem;
+}
+
+.contentArticle{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap:1rem;  
+  justify-content:center;
+  article{
+    border: 1px solid white; 
+    padding: 1rem; 
+    display: flex; 
+    flex-direction: column;
+    span:nth-child(1){
+      font-weight: 600; 
+      margin-bottom: 8px;
+    }
+  }
+}
+
+#startDateInput, #endDateInput{
+  width: 120px;
+  margin-bottom: 8px;
+  color: #253143;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.containerError{
+  max-width: 400px; 
+  background-color: rgb(253, 114, 114); 
+  display: flex; 
+  justify-content: space-between; 
+  box-sizing: border-box;
+  align-items: center; 
+  padding: 1.5rem 1rem; 
+  border-radius: 8px; 
+  gap:1rem; 
+  margin: 1rem; 
+  position: fixed; 
+  bottom: 1rem; 
+  right: 1rem; 
+  z-index:1;
+  div:nth-child(1){
+    width: 40px;
+  }
+  div:nth-child(2){
+    span{
+      font-size: 1.2rem; 
+      font-weight: 600;
+    }
+    p{
+      margin-top: 8px;
+    }
+  }
+  div:nth-child(3){
+    width: 32px;
+    cursor: pointer;
+  }
+}
