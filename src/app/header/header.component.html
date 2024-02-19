@@ -2,9 +2,9 @@
     <div class="contentnav">
         <div class="headernav">
             <span><img src="../../assets/images/logo-astronomy.png" alt="" /></span>
-            <span class="btnmenu">Menu</span>
+            <span class="btnmenu" (click)="showMenu()">Menu</span>
         </div>
-        <div class="menu">
+        <div class="menu" #menuShow>
         @for(item of menu; track item.id){
             <span><a [routerLink]="item.url" [class.active]="item.selected" (click)="toggleActive(item.id)">{{item.name}}</a></span>
         }

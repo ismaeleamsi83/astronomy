@@ -36,7 +36,7 @@ nav{
 
 @media (max-width:  768px){
     nav{
-        padding-bottom: 3rem;
+        padding-bottom: 1rem;
         .contentnav{
             display: flex;
             flex-direction: column;
@@ -53,17 +53,30 @@ nav{
             .btnmenu{
                 display: block;
                 margin-right: 2rem;
+                cursor: pointer;
             }
             img{
                 margin-left: 2rem;
             }
             .menu{
                 //background-color: aqua;
+                
+                display: none;
+                span{
+                    border-bottom: 2px solid #1C3C50;
+                    padding-bottom: 1rem;
+                    padding-top: 1rem;
+                    padding-left: 4rem;
+                    //background-color: antiquewhite;
+                    width: 100%;
+                }
+            }
+            .showMenu{
+                display: flex;
                 margin-top: 3rem;
                 width: 100%;
                 flex-direction: column;
                 gap: 0;
-                
                 span{
                     border-bottom: 2px solid #1C3C50;
                     padding-bottom: 1rem;

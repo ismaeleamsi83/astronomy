@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 export class HeaderComponent {
 
   isActive: boolean = false;
+
+  @ViewChild('menuShow') menuShow!: ElementRef;
 
   menu = [
     { 'id': 0, 'name': 'Home', 'url': '', 'selected': false},
@@ -28,6 +30,18 @@ export class HeaderComponent {
       }
     }
    
+  }
+
+  showMenu(){
+    console.log("pulsado");
+    if(this.menuShow.nativeElement.classList.contains('menu')){
+      this.menuShow.nativeElement.classList.add('showMenu');
+      this.menuShow.nativeElement.classList.remove('menu');
+    }else{
+      this.menuShow.nativeElement.classList.add('menu');
+      this.menuShow.nativeElement.classList.remove('showMenu');
+    }
+    
   }
 
 }
