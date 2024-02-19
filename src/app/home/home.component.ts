@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit{
 
   showError: boolean = false;
 
+  typeVideo: boolean = false;
+
 
   constructor(private  mainService : MainService) {}
 
@@ -26,7 +28,12 @@ export class HomeComponent implements OnInit{
     this.mainService.getTodayImg(this.urlToday).subscribe({
       next:  (data) => {
         console.log('Data recibida');
+        console.log(data);
         this.photoToday = data;
+
+        if(this.photoToday.media_type === "video"){
+          this.typeVideo = true;
+        }
       },
       error: (error) => {
         if(error.status == 504){

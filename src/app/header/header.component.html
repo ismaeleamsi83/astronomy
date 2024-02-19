@@ -1,8 +1,10 @@
 <nav>
-    <div>
+    <div class="contentnav">
         <span><img src="../../assets/images/logo-astronomy.png" alt="" /></span>
+        <div class="menu">
         @for(item of menu; track item.id){
             <span><a [routerLink]="item.url" [class.active]="item.selected" (click)="toggleActive(item.id)">{{item.name}}</a></span>
         }
+        </div>
     </div>
 </nav>

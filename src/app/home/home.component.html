@@ -13,7 +13,11 @@
 <div class="contentSecondary">
 @if(photoToday != undefined){
     <h2>Last Photo - {{photoToday.date}}</h2>
-    <img [src]="photoToday.hdurl" alt="Picture today" >
+    @if(typeVideo){
+        <a href="{{photoToday.url}}" target="_blank">Link Video Today</a>
+    }@else{
+        <img [src]="photoToday.hdurl" alt="Picture today" >
+    }
     <h3>{{photoToday.title}}</h3>
     <p>Explanation: {{photoToday.explanation}}</p>
 }@else{
