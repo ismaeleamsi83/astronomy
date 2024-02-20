@@ -3,7 +3,7 @@ nav{
     padding: 1rem 0;
     background-color: #1B2431;
     box-shadow: 0 3px 8px #1B2431;
-
+    letter-spacing: 0.5px;
     img{
         height: 40px;
     }
@@ -32,7 +32,7 @@ nav{
         color: #E1E1E1;
         text-decoration: none;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         gap: 0.5rem;
     }
     a.active{
@@ -86,6 +86,10 @@ nav{
                 width: 100%;
                 flex-direction: column;
                 gap: 0;
+                a{
+                    display: flex;
+                    align-items: flex-end;
+                }
                 img{
                     height: 1.4rem;
                 }
