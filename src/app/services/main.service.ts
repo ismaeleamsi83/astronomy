@@ -31,7 +31,7 @@ export class MainService {
   }
 
   getPatents(urlApi: any): Observable<any>{
-    return this.http.get<any>(urlApi);
+    return this.http.get<any>(urlApi+this.keyApi);
   }
 
 }

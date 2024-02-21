@@ -5,9 +5,12 @@
     max-width: 1024px; 
     display: flex; 
     flex-wrap: wrap;
+    justify-content: center;
     padding: 2rem;
+    gap: 2rem;
     & > div{
-        width: 50%;
+        width: 47%;
+        background-color: #263242;
     }
 }
 
