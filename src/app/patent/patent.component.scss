@@ -8,6 +8,10 @@
     justify-content: center;
     padding: 2rem;
     gap: 2rem;
+    letter-spacing: 1px;
+    p{
+        line-height: 1.4rem;
+    }
     & > div{
         width: 47%;
         background-color: #263242;
@@ -16,6 +20,15 @@
 
 @media (max-width: 768px){
     .contentPrimary{
+        h3{
+            font-size: 1.4rem;
+        }
+        h4{
+            font-size: 1.2rem;
+        }
+        h5{
+            font-size: 1rem;
+        }
         & > div{
             width: 100%;
         }

@@ -21,8 +21,8 @@ export class PatentComponent implements OnInit, AfterViewInit {
     subscribe({
       next: (data) => {
         this.patents= data.results;
-        console.log(data.results);
-        console.log(this.patents);
+        // console.log(data.results);
+        // console.log(this.patents);
 
         this.changeParams();
       },
@@ -30,19 +30,18 @@ export class PatentComponent implements OnInit, AfterViewInit {
       complete:() => console.log("Completado")
     });
 
-    console.log(this.patents);
+    //console.log(this.patents);
     
     
   }
 
   changeParams(){
-    console.log("despues");
+    
     if(this.patents != undefined){
       this.patents.forEach((element: any) => {
-        console.log("ok");
+      
         for(let key=0; key < 14; key++){
-          console.log(key);
-          console.log(element[key]);
+          
           element[key] = String(element[key]).replace(/<[^>]*>/g, "");
         }
       });

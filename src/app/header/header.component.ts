@@ -18,7 +18,7 @@ export class HeaderComponent {
     { 'id': 0, 'icon': '../../assets/images/home.png','name': 'Home', 'url': '', 'selected': false},
     { 'id': 1, 'icon': '../../assets/images/asteroid.png','name': 'Asteroids', 'url':'asteroids', 'selected': false },
     { 'id': 2, 'icon': '../../assets/images/mars.png','name': 'Mars', 'url':'mars', 'selected': false },
-    { 'id': 3, 'icon': '../../assets/images/mars.png','name': 'Patents', 'url':'patents', 'selected': false },
+    { 'id': 3, 'icon': '../../assets/images/patent.png','name': 'Patents', 'url':'patents', 'selected': false },
   ];
 
   toggleActive(index: number){

@@ -68,9 +68,9 @@ export class AsteroidsComponent implements OnInit {
 
     // si no esta introducidas las fechas no se hace consulta
     if(this.form.invalid){
-      this.messageError = "Sorry, but LIMIT BETWEEN 7 DAYS."
+      this.messageError = "Sorry, but you have to enter the dates."
       this.showError = true;
-      return console.log("salir");
+      return console.log("");
     }
 
     //reiniciar desde
@@ -84,15 +84,15 @@ export class AsteroidsComponent implements OnInit {
     this.asteroidsPrueba = [];
     this.asteroidShow = [];
 
-    console.log(this.form);
-    console.log(this.form.value.startDate);
+    // console.log(this.form);
+    // console.log(this.form.value.startDate);
     this.mainService.getAsteroids(this.form.value.startDate, this.form.value.endDate)
     .subscribe({
       next:  (res) => {
       
-        console.log(res);
+        //console.log(res);
         this.asteroids = res;
-        console.log(this.asteroids);
+        //console.log(this.asteroids);
         
         const fechaInicio = new Date(this.form.value.startDate); 
         const fechaFin = new Date(this.form.value.endDate);
@@ -102,24 +102,24 @@ export class AsteroidsComponent implements OnInit {
   
         for (let date in res.near_earth_objects) {
           if (res.near_earth_objects.hasOwnProperty(date)) {
-              console.log(`Fecha: ${date}`);
-              console.log(res.near_earth_objects[date]); 
+              // console.log(`Fecha: ${date}`);
+              // console.log(res.near_earth_objects[date]); 
               
               this.asteroidsPrueba.push(res.near_earth_objects[date]);
             }
         }
-        console.log(this.asteroidsPrueba);
+        //console.log(this.asteroidsPrueba);
   
   
         //spinner ocultar
         this.isLoading=false;
         for(const asteroid of this.asteroidsPrueba){
           for(const elem of asteroid){
-            console.log(elem);
+            // console.log(elem);
             this.asteroidShow.push(elem);
           }
         }
-        console.log(this.asteroidShow);
+        // console.log(this.asteroidShow);
       },
       error: err=>{
         if(err.status == 400) {
