@@ -17,7 +17,7 @@
         </div>
     }
     @if(asteroidShow != undefined){
-        <span>Number of Asteroids are: {{asteroidShow.length}}</span><br />
+        <span>There are {{asteroidShow.length}} Asteroids</span><br />
         <div class="contentArticle">
         @for (item of asteroidShow; track $index) {
             @if($index >= desde && $index < limite){

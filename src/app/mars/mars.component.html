@@ -1,9 +1,10 @@
 <div class="container">
+    <h1>Photos of Mars</h1>
     @for(item of marsArray; track $index){
         <article>
-            <span>{{item.camera.full_name}}</span>
-            <span>{{item.earth_date}}</span>
             <img [src]="item.img_src" alt="{{item.camera.full_name}}" >
+            <span class="titlephoto">{{item.camera.full_name}}</span>
+            <span class="fecha">{{item.earth_date}}</span>
         </article>
     }
 </div>    
