@@ -62,7 +62,11 @@ export class PatentComponent implements OnInit, AfterViewInit {
 
 
   toggleShowMore(index: number): void {
-    this.showMore[index] = true;
+    if(this.showMore[index]){
+      this.showMore[index]= false;
+    }else{
+      this.showMore[index] = true;
+    }
   }
 
 }

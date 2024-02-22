@@ -13,8 +13,9 @@
                 <br>
                 <!-- <p>{{item[3]}}</p> -->
                 <p>
-                    {{(showMore[$index]) ? item[3] : item[3] | slice:0:100}} <span *ngIf="!showMore">...</span>
+                    {{(showMore[$index]) ? item[3] : item[3] | slice:0:100}}<span *ngIf="!showMore[$index]">...</span>
                     <a href="javascript:;" *ngIf="!showMore[$index]" (click)="toggleShowMore($index)" style="color: rgb(0, 132, 255);">[Show More]</a>
+                    <a href="javascript:;" *ngIf="showMore[$index]" (click)="toggleShowMore($index)" style="color: rgb(0, 132, 255);">[Show Less]</a>
                 </p>
             </div>
         </div>
