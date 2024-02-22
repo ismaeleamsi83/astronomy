@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-patent',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './patent.component.html',
   styleUrl: './patent.component.scss'
 })
@@ -12,6 +13,8 @@ export class PatentComponent implements OnInit, AfterViewInit {
 
   patents: any;
   urlPatents = "https://api.nasa.gov/techtransfer/patent/?engine&api_key=";
+
+  showMore: boolean[]=[];
 
   constructor(private mainService: MainService){}
 
@@ -25,6 +28,11 @@ export class PatentComponent implements OnInit, AfterViewInit {
         // console.log(this.patents);
 
         this.changeParams();
+
+
+        //showMore
+        this.showMore = Array(this.patents.length).fill(false);
+
       },
       error: (errorMessage)=>{console.log('Error in getting the list of patents')},
       complete:() => console.log("Completado")
@@ -51,6 +59,12 @@ export class PatentComponent implements OnInit, AfterViewInit {
   ngAfterViewInit():void{
     
   }
+
+
+  toggleShowMore(index: number): void {
+    this.showMore[index] = true;
+  }
+
 }
 
 
