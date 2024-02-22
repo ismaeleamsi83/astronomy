@@ -1,10 +1,10 @@
 <div class="contentPrimary">
-    <h1 style="width: 100%; text-align: center;text-shadow: 2px 2px 2px rgb(61, 61, 61);">The NASA patent portfolio</h1>
+    <h1>The NASA patent portfolio</h1>
 @if(patents != undefined){
     @for (item of patents; track $index) {
-        <div style="border: 1px solid rgb(129, 129, 129); margin-bottom: 2rem;">
-            <img src="{{item[10]}}" alt="" style="width: 100%;">
-            <div style="padding: 1rem;">
+        <div class="contentArticle">
+            <img src="{{item[10]}}" alt="{{item[2]}}">
+            <div>
                 <h3>{{item[1]}}</h3>
                 <br>
                 <h4>{{item[2]}}</h4>

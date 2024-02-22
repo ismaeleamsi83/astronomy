@@ -9,6 +9,21 @@
     padding: 2rem;
     gap: 2rem;
     letter-spacing: 1px;
+    .contentArticle{
+        border: 1px solid rgb(129, 129, 129); 
+        margin-bottom: 2rem;
+        img{
+            width: 100%;
+        }
+        div{
+            padding: 1rem;
+        }
+    }
+    h1{
+        width: 100%; 
+        text-align: center;
+        text-shadow: 2px 2px 2px rgb(61, 61, 61);
+    }
     p{
         line-height: 1.4rem;
     }
