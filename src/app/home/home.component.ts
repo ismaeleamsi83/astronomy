@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit{
   ngOnInit(){
     this.mainService.getTodayImg(this.urlToday).subscribe({
       next:  (data) => {
-        console.log('Data recibida');
-        console.log(data);
+        // console.log('Data recibida');
+        // console.log(data);
         this.photoToday = data;
 
         if(this.photoToday.media_type === "video"){
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
       },
       error: (error) => {
         if(error.status == 504){
-          console.log("Todavia no han actualizado la foto de hoy");
+          // console.log("Todavia no han actualizado la foto de hoy");
           this.showError = true;
         }else{
           console.log('Error en la peticion');

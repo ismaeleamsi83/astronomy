@@ -1,7 +1,9 @@
 
 <div class="contentPrimary">
-    <img src="../../assets/images/header_home.webp" alt="picture universe" >
-    <h1>Explore the Wonders of the Universe: Your Gateway to Astronomy</h1>
+    <div class="contentImage">
+        <img src="../../assets/images/header.webp" alt="picture header of universe" >
+        <h1>Explore the Wonders of the Universe</h1>
+    </div>
     <p>Welcome to our celestial haven, where the mysteries of the cosmos unfold before your eyes. Embark on a journey through the boundless expanse of space as we delve into the captivating realm of astronomy. At our fingertips lies a wealth of knowledge gleaned from the forefront of exploration, sourced directly from the official repository of cosmic discovery – NASA.</p>
     <p>Discover the enigmatic allure of distant stars, planets, and galaxies that adorn the velvet tapestry of the night sky. Our platform serves as your celestial guide, offering a portal to unlock the secrets of the universe and unravel the complexities of cosmic phenomena.</p>
     <p>From the awe-inspiring majesty of nebulae to the intricate dance of celestial bodies in the cosmos, our curated content provides an immersive experience into the wonders of astronomy. Explore captivating imagery captured by cutting-edge telescopes and spacecraft, unveiling the breathtaking beauty and diversity of our cosmic neighborhood.</p>
@@ -16,7 +18,7 @@
     @if(typeVideo){
         <a href="{{photoToday.url}}" target="_blank">Link Video Today</a>
     }@else{
-        <img [src]="photoToday.hdurl" alt="Picture today" >
+        <img [src]="photoToday.hdurl" alt="Picture today for NASA" >
     }
     <h3>{{photoToday.title}}</h3>
     <p>Explanation: {{photoToday.explanation}}</p>

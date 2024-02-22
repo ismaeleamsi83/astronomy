@@ -1,6 +1,6 @@
 .contentPrimary{
     box-sizing: border-box;
-    background-color: rgba(53, 69, 92, 0.8);
+    background-color: rgba(53, 69, 92, 0.95);
     margin: 3rem auto 0 auto; 
     max-width: 1024px; 
     display: flex; 
@@ -8,6 +8,17 @@
     align-items: start;
     gap: 1rem; 
     padding: 2rem;
+    .contentImage{
+        position: relative;
+        h1{
+            position: absolute; 
+            top:24px; 
+            z-index: 2; 
+            left: 50%;
+            transform: translateX(-50%); 
+            text-shadow: 3px 3px 8px black;
+        }
+    }
     & img{
         width: 100%;
     }
@@ -23,7 +34,7 @@
 
 .contentSecondary{
     box-sizing: border-box;
-    background-color: rgba(53, 69, 92, 0.8);
+    background-color: rgba(53, 69, 92, 0.95);
     margin: 3rem auto 3rem auto; 
     max-width: 1024px; 
     display: flex; 
